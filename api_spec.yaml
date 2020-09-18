@@ -1,0 +1,75 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: address_parser
+  description: normalizes any give US postal Address
+servers:
+  - url: 'http://localhost:3000'
+tags:
+  - name : parse_address
+    description: normalizes any give US postal Address
+paths:
+  /address_parse/v1:
+    get:
+      summary: 'Sample endpoint: Returns the normalized US Postal Address'
+      operationId: parse
+      tags:
+        - parse_address
+      parameters:
+        - name: address
+          in: query
+          description: postal address in string
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success Response'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Address'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Address:
+      type: object
+      required:
+        - building_number
+        - street_name
+        - street_type
+        - city
+        - state
+        - postal_code
+        - country
+      properties:
+        building_number:
+          type: string
+        street_name:
+          type: string
+        street_type:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postal_code:
+          type: string
+        country:
+          type: string
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
