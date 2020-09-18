@@ -1,8 +1,8 @@
-from model.address import Address
+from src.model.address import Address
 import usaddress
-import controller.app_logging
+import src.controller.app_logging
 
-logger = controller.app_logging.logger('service.address_parser')
+logger = src.controller.app_logging.logger('src.service.address_parser')
 
 
 def parse(address_str):

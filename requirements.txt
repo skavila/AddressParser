@@ -1,4 +1,4 @@
 flask
-yaml
-json
+pyyaml
 usaddress
+gunicorn

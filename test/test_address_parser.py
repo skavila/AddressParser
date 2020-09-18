@@ -1,4 +1,4 @@
-from service.address_parser import parse
+from src.service.address_parser import parse
 import json
 
 print('>>> testing...')

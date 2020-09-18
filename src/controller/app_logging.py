@@ -11,7 +11,7 @@ def logger(name):
     else:
         log = logging.getLogger(name)
 
-    default_level = 'INFO'
+    default_level = 'DEBUG'
 
     log_config_path = '/resources/logging.yaml'
     try:

@@ -1,12 +1,12 @@
 from flask import Flask, jsonify, request
-from service.address_parser import parse
+from src.service.address_parser import parse
 import json
-import controller.app_logging
+import src.controller.app_logging
 
 # create a flask app
 app = Flask(__name__)
 
-logger = controller.app_logging.logger('controller.rest_api')
+logger = src.controller.app_logging.logger('src.controller.rest_api')
 
 
 @app.route('/ping', methods=['GET', 'POST'])
