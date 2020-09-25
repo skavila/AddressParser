@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: address-parser
+spec:
+  type: NodePort
+  selector:
+    app: address-parser
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 3000

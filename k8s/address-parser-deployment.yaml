@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: address-parser
+spec:
+  selector:
+    matchLabels:
+      app: address-parser
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: address-parser
+    spec:
+      containers:
+      - name: address-parser
+        image: address-parser:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+          - mountPath: /usr/share/applogs
+            name: logpath
+      volumes:
+        - name: logpath
+          emptyDir: {}
